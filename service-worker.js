@@ -1,4 +1,4 @@
-const CACHE_NAME = "rakani-scoreboard-v1";
+const CACHE_NAME = "rakani-scoreboard-v4";
 const APP_SHELL = [
     "./",
     "./index.html",
