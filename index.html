@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#082b4b">
+    <meta name="description" content="Samostalni semafor za odbojkaške mečeve Rakani Open.">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>RAKANI OPEN 2027 | Odigraj meč</title>
+    <link rel="manifest" href="./manifest.webmanifest">
+    <link rel="icon" type="image/png" sizes="192x192" href="./assets/icon-192.png">
+    <link rel="apple-touch-icon" href="./assets/icon-192.png">
+    <link rel="stylesheet" href="./css/prijava.css">
+    <link rel="stylesheet" href="./css/odigraj-mec.css">
+</head>
+<body class="has-site-nav">
+    <main class="prijava-layout prijava-layout-ekipa match-layout">
+        <section class="prijava-brend" aria-label="Rakani Open 2027">
+            <img src="./assets/logo-tekst.png" alt="Rakani Open 2027 — More than just a game" class="prijava-logo">
+        </section>
+
+        <section id="unos-ekipa" class="prijava-kartica kartica-ekipa">
+            <header class="kartica-zaglavlje">
+                <p class="kartica-nadnaslov">RAKANI OPEN 2027</p>
+                <h1 id="unos-h1">Unesi ekipe</h1>
+                <p>Spremni za meč? Unesite nazive ekipa.</p>
+            </header>
+
+            <div class="prijava-forma match-entry-fields">
+                <form id="forma-odigraj-mec" class="match-form match-team-form">
+                    <div class="match-field">
+                        <label for="ekipa1">Ekipa 1</label>
+                        <input type="text" id="ekipa1" placeholder="Naziv prve ekipe" autocomplete="off" required>
+                    </div>
+                    <div class="match-field">
+                        <label for="ekipa2">Ekipa 2</label>
+                        <input type="text" id="ekipa2" placeholder="Naziv druge ekipe" autocomplete="off" required>
+                    </div>
+                    <button class="match-button match-button-primary glavno-dugme" type="submit">Započni meč</button>
+                </form>
+
+                <form id="prvi-servis" class="match-form service-form" style="display: none">
+                    <h2>Ko servira prvi?</h2>
+                    <div class="service-options">
+                        <label class="service-option">
+                            <input type="radio" name="servis" value="a" required>
+                            <span id="ekipa1-servis"></span>
+                        </label>
+                        <label class="service-option">
+                            <input type="radio" name="servis" value="b">
+                            <span id="ekipa2-servis"></span>
+                        </label>
+                    </div>
+                    <button class="match-button match-button-primary glavno-dugme" type="submit">Potvrdi servis</button>
+                </form>
+            </div>
+        </section>
+
+        <section id="tok-meca" class="match-stage" style="display: none" aria-live="polite">
+            <div id="prikaz-rezultat" class="score-card">
+                <p class="match-eyebrow">RAKANI OPEN 2027</p>
+                <h1 class="score-teams">
+                    <span id="ekipa1-prikaz" class="score-team-side score-team-left">
+                        <span id="ekipa1-serve-ball" class="serve-ball" aria-hidden="true">🏐</span>
+                        <span id="ekipa1-ime" class="score-team-name"></span>
+                    </span>
+                    <span class="score-team-divider" aria-hidden="true">:</span>
+                    <span id="ekipa2-prikaz" class="score-team-side score-team-right">
+                        <span id="ekipa2-ime" class="score-team-name"></span>
+                        <span id="ekipa2-serve-ball" class="serve-ball" aria-hidden="true">🏐</span>
+                    </span>
+                </h1>
+                <p id="rezultat-setovi" class="score-sets"></p>
+                <h2 id="rezultat-poeni" class="score-points"></h2>
+            </div>
+            <div id="komande-rezultat" class="match-controls">
+                <button class="match-button match-button-primary" id="plus1" type="button"></button>
+                <button class="match-button match-button-primary" id="plus2" type="button"></button>
+                <button class="match-button match-button-danger" id="ponisti" type="button">Poništi posljednji poen</button>
+            </div>
+            <div id="prikaz-pobjednika" class="winner-card" style="display: none">
+                <p class="match-eyebrow">KRAJ MEČA</p>
+                <h1 id="pobjednik"></h1>
+                <p>Odlična igra! Šta želite dalje?</p>
+                <div class="winner-actions">
+                    <button class="match-button match-button-primary" id="nastavi" type="button">Igraj ponovo</button>
+                    <button class="match-button match-button-secondary" id="novi-mec" type="button">Nove ekipe</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script type="module" src="./js/odigraj-mec.js"></script>
+    <script src="./js/pwa.js" defer></script>
+</body>
+</html>

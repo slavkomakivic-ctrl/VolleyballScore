@@ -1,0 +1,514 @@
+:root {
+    --prijava-navy: #082b4b;
+    --prijava-yellow: #ffc21a;
+    --prijava-muted: #c6d4e2;
+}
+
+html {
+    min-height: 100%;
+}
+
+body {
+    position: relative;
+    display: flex;
+    min-height: 100vh;
+    min-height: 100dvh;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    color: #fff;
+    font-family: "Montserrat", "Segoe UI", Arial, sans-serif;
+    background: #0d3456 url("../assets/pocetna.png") center / cover fixed no-repeat;
+}
+
+body::before {
+    display: none;
+}
+
+body::after {
+    position: fixed;
+    z-index: 0;
+    inset: 0;
+    content: "";
+    pointer-events: none;
+    background:
+        linear-gradient(90deg, rgba(3, 24, 43, 0.08) 20%, rgba(3, 24, 43, 0.34) 57%, rgba(3, 24, 43, 0.52) 100%),
+        linear-gradient(0deg, rgba(3, 24, 43, 0.25), transparent 45%);
+}
+
+.prijava-layout {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(350px, 430px);
+    align-items: center;
+    gap: clamp(2rem, 6vw, 6rem);
+    width: min(100%, 1160px);
+    min-height: 100vh;
+    min-height: 100dvh;
+    margin: 0 auto;
+    padding: 48px 36px;
+}
+
+.prijava-brend {
+    position: relative;
+    isolation: isolate;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+}
+
+.prijava-brend::before {
+    position: absolute;
+    z-index: -1;
+    inset: -20% -16%;
+    content: "";
+    background: radial-gradient(
+        ellipse at center,
+        rgba(255, 255, 255, 0.82) 0%,
+        rgba(255, 255, 255, 0.52) 46%,
+        rgba(255, 255, 255, 0) 82%
+    );
+    filter: blur(26px);
+    pointer-events: none;
+}
+
+.prijava-logo {
+    display: block;
+    width: min(100%, 660px);
+    max-height: 320px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 18px rgba(255, 255, 255, 0.68));
+}
+
+.prijava-kartica {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding: clamp(24px, 3vw, 36px);
+    border: 1px solid rgba(223, 237, 248, 0.52);
+    border-radius: 28px;
+    background: rgba(5, 35, 62, 0.42);
+    box-shadow: 0 24px 70px rgba(1, 17, 33, 0.4), inset 0 1px rgba(255, 255, 255, 0.12);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+}
+
+.prijava-kartica::before,
+.prijava-kartica::after {
+    position: absolute;
+    z-index: 0;
+    top: -1px;
+    height: 6px;
+    content: "";
+    pointer-events: none;
+}
+
+.prijava-kartica::before {
+    left: 0;
+    width: 34%;
+    background: var(--prijava-yellow);
+    clip-path: polygon(0 0, 100% 0, 88% 100%, 0 100%);
+}
+
+.prijava-kartica::after {
+    right: 0;
+    width: 15%;
+    background: rgba(255, 194, 26, 0.72);
+    clip-path: polygon(12% 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.prijava-kartica > * {
+    position: relative;
+    z-index: 1;
+}
+
+.kartica-zaglavlje {
+    margin-bottom: 24px;
+}
+
+.kartica-nadnaslov {
+    margin: 0 0 8px;
+    color: var(--prijava-yellow);
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+}
+
+.prijava-kartica h1 {
+    max-width: none;
+    margin: 0;
+    color: #fff;
+    font-size: clamp(2rem, 5vw, 2.6rem);
+    line-height: 1.1;
+    text-shadow: none;
+}
+
+.kartica-zaglavlje > p:last-child {
+    margin: 8px 0 0;
+    color: var(--prijava-muted);
+    font-size: 0.88rem;
+    line-height: 1.5;
+}
+
+.prijava-kartica form.prijava-forma {
+    position: relative;
+    display: grid;
+    gap: 16px;
+    max-width: none;
+    margin: 0;
+    padding: 18px;
+    border: 1px solid rgba(223, 237, 248, 0.3);
+    border-radius: 16px;
+    background: rgba(1, 19, 36, 0.55);
+    box-shadow: inset 0 1px rgba(255, 255, 255, 0.05);
+}
+
+.prijava-kartica form.prijava-forma::before,
+.prijava-kartica form.prijava-forma::after {
+    position: absolute;
+    top: -1px;
+    height: 4px;
+    content: "";
+    pointer-events: none;
+}
+
+.prijava-kartica form.prijava-forma::before {
+    left: 18px;
+    width: 72px;
+    background: var(--prijava-yellow);
+    clip-path: polygon(0 0, 100% 0, 88% 100%, 0 100%);
+}
+
+.prijava-kartica form.prijava-forma::after {
+    right: 18px;
+    width: 34px;
+    background: rgba(255, 194, 26, 0.68);
+    clip-path: polygon(12% 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.polje-prijave label,
+.prijava-forma label {
+    display: block;
+    margin: 0 0 7px;
+    color: #e6eef6;
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+
+.prijava-forma input {
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 0;
+    min-height: 48px;
+    padding: 0 14px;
+    border: 1px solid rgba(215, 231, 245, 0.34);
+    border-radius: 10px;
+    outline: 0;
+    color: #fff;
+    font: inherit;
+    font-size: 0.83rem;
+    background: rgba(255, 255, 255, 0.075);
+    transition: border-color 160ms ease, background 160ms ease, box-shadow 160ms ease;
+}
+
+.prijava-forma input::placeholder {
+    color: rgba(225, 236, 247, 0.55);
+}
+
+.prijava-forma input:focus {
+    border-color: var(--prijava-yellow);
+    background: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 0 0 3px rgba(255, 194, 26, 0.16);
+}
+
+.unos-sa-ikonom {
+    position: relative;
+}
+
+.unos-sa-ikonom svg {
+    position: absolute;
+    top: 50%;
+    left: 14px;
+    width: 19px;
+    height: 19px;
+    fill: #d3e0ed;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.unos-sa-ikonom input {
+    padding-left: 44px;
+}
+
+.prijava-forma button {
+    min-height: 48px;
+    margin: 4px 0 0;
+    border: 0;
+    border-radius: 999px;
+    font: inherit;
+    font-size: 0.9rem;
+    font-weight: 800;
+    cursor: pointer;
+    transition: transform 160ms ease, filter 160ms ease;
+}
+
+.prijava-forma button:hover:not(:disabled) {
+    transform: translateY(-1px);
+    filter: brightness(1.06);
+}
+
+.prijava-forma .glavno-dugme {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    color: var(--prijava-navy);
+    background: var(--prijava-yellow);
+    box-shadow: 0 8px 18px rgba(255, 194, 26, 0.18);
+}
+
+.glavno-dugme svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}
+
+.status-prijave {
+    min-height: 20px;
+    margin: 12px 0 0;
+    color: #f2d16f;
+    font-size: 0.82rem;
+    line-height: 1.45;
+    overflow-wrap: anywhere;
+    text-shadow: none;
+}
+
+.status-prijave:empty {
+    min-height: 0;
+    margin-top: 0;
+}
+
+.prijava-layout-ekipa {
+    grid-template-columns: minmax(0, 1fr) minmax(400px, 490px);
+    gap: clamp(1.5rem, 4vw, 4rem);
+}
+
+.kartica-ekipa {
+    padding: clamp(22px, 2.7vw, 32px);
+}
+
+.kartica-ekipa .kartica-zaglavlje {
+    margin-bottom: 18px;
+}
+
+.kartica-ekipa form.prijava-forma {
+    gap: 12px;
+}
+
+.kartica-ekipa .prijava-forma input {
+    min-height: 42px;
+}
+
+.igraci-grupa {
+    min-width: 0;
+    margin: 3px 0 0;
+    padding: 12px 14px 14px;
+    border: 1px solid rgba(255, 194, 26, 0.24);
+    border-radius: 12px;
+}
+
+.igraci-grupa legend {
+    padding: 0 7px;
+    color: var(--prijava-yellow);
+    font-size: 0.82rem;
+    font-weight: 800;
+}
+
+#clanovi-kontejner {
+    display: grid;
+    gap: 10px;
+}
+
+.clan-osnovni,
+#clanovi-kontejner .clan-dodatni {
+    min-width: 0;
+}
+
+#clanovi-kontejner .clan-dinamicki-red {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#clanovi-kontejner .clan-dinamicki-red input {
+    flex: 1;
+}
+
+#clanovi-kontejner .clan-dinamicki-red .ukloni-clana {
+    flex: 0 0 42px;
+    width: 42px;
+    min-height: 42px;
+    margin: 0;
+    padding: 0;
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    border-radius: 10px;
+    color: #fff;
+    font-size: 1.3rem;
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.prijava-forma .sekundarno-dugme {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    min-height: 42px;
+    margin: 0;
+    border: 1px solid rgba(255, 194, 26, 0.62);
+    border-radius: 10px;
+    color: var(--prijava-yellow);
+    background: rgba(255, 194, 26, 0.08);
+}
+
+.sekundarno-dugme span {
+    font-size: 1.25rem;
+    line-height: 1;
+}
+
+.prijava-forma .glavno-dugme {
+    margin-top: 2px;
+}
+
+#prikaz-rasporeda {
+    display: grid;
+    gap: 14px;
+    max-width: none;
+    margin: 18px 0 0;
+}
+
+.prijava-kartica #kontrole-meca,
+.prijava-kartica #sudijski-panel {
+    position: relative;
+    max-width: none;
+    margin: 16px 0 0;
+    padding: 18px;
+    border: 1px solid rgba(215, 231, 245, 0.24);
+    border-radius: 14px;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: none;
+}
+
+.prijava-kartica #kontrole-meca::before,
+.prijava-kartica #sudijski-panel::before,
+.prijava-kartica .mec-kartica::before {
+    position: absolute;
+    top: -1px;
+    left: 0;
+    width: 76px;
+    height: 4px;
+    content: "";
+    background: var(--prijava-yellow);
+    clip-path: polygon(0 0, 100% 0, 88% 100%, 0 100%);
+    pointer-events: none;
+}
+
+.prijava-kartica .mec-kartica {
+    overflow: hidden;
+    border-color: rgba(255, 194, 26, 0.28);
+    color: #fff;
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 10px 24px rgba(1, 17, 33, 0.18);
+}
+
+.prijava-kartica .mec-kartica h3 {
+    color: #fff;
+}
+
+.prijava-kartica #sudijski-panel h2 {
+    color: #fff;
+}
+
+@media (orientation: portrait) {
+    body {
+        background-image: url("../assets/telefon.png");
+        background-position: center;
+        background-attachment: scroll;
+    }
+}
+
+@media (min-width: 801px) {
+    .prijava-layout-ekipa .prijava-brend {
+        position: fixed;
+        z-index: 2;
+        top: max(90px, 50vh);
+        left: max(36px, calc((100% - 1160px) / 2 + 36px));
+        right: calc(max(36px, (100% - 1160px) / 2 + 36px) + 490px + clamp(1.5rem, 4vw, 4rem));
+        transform: translateY(-50%);
+    }
+
+    .prijava-layout-ekipa .prijava-logo {
+        width: 100%;
+        max-width: 660px;
+        min-width: 0;
+    }
+
+    .prijava-layout-ekipa .prijava-kartica {
+        grid-column: 2;
+    }
+}
+
+@media (max-width: 800px) {
+    .prijava-layout,
+    .prijava-layout-ekipa {
+        grid-template-columns: minmax(0, 1fr);
+        justify-items: center;
+        gap: 22px;
+        width: min(100%, 560px);
+        padding: 28px 20px;
+    }
+
+    .prijava-layout-ekipa {
+        padding-top: 158px;
+    }
+
+    .prijava-layout-ekipa .prijava-brend {
+        position: fixed;
+        z-index: 5;
+        top: 66px;
+        right: 0;
+        left: 0;
+        justify-content: center;
+        width: 100%;
+        height: 136px;
+        padding: 8px 16px;
+        background: transparent;
+    }
+
+    .prijava-logo {
+        width: min(100%, 660px);
+        max-height: 120px;
+    }
+
+    .prijava-kartica {
+        max-width: 490px;
+        border-radius: 22px;
+    }
+}
+
+@media (max-width: 480px) {
+    .prijava-layout,
+    .prijava-layout-ekipa {
+        gap: 16px;
+        padding: max(18px, env(safe-area-inset-top)) 14px max(22px, env(safe-area-inset-bottom));
+    }
+
+    .prijava-kartica,
+    .kartica-ekipa {
+        padding: 22px 18px;
+        border-radius: 18px;
+    }
+}
